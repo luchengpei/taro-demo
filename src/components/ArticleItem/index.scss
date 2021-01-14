@@ -1,0 +1,38 @@
+.article {
+  width: 100vw;
+  padding: 30rpx;
+  box-sizing: border-box;
+  .wrap {
+    color: #ccc;
+    margin-bottom: 20rpx;
+    .img {
+      width: 100%;
+      > image {
+        width: 100%;
+      }
+    }
+    .title {
+      font-weight: 600;
+      margin-bottom: 20rpx;
+      color: #444;
+    }
+    .info {
+      display: flex;
+      align-items: center;
+      margin: 20rpx 0;
+      .preview {
+        margin-right: 30rpx;
+      }
+      .number {
+        margin-left: 10rpx;
+      }
+    }
+    .type {
+      margin-top: 20rpx;
+      > .title1 {
+        margin-left: 20rpx;
+        color: #ccc;
+      }
+    }
+  }
+}
