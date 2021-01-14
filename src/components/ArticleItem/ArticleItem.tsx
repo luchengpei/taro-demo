@@ -61,20 +61,20 @@ export default function ArticleItem (props: PropsData) {
 
                             <View className="time">
                                 <Text>发布时间:</Text>
-                                    <Text style="margin-left:20rpx">{ row.createTime }</Text>
+                                <Text style="margin-left:20rpx">{ row.createTime }</Text>
                             </View>
 
                             <View className="info">
                                 <View className="preview">
                                     <AtIcon  value='eye' size='20' ></AtIcon>
-                                        <Text className="number">{ row.preViewNum}</Text>
+                                    <Text className="number">{ row.preViewNum}</Text>
                                 </View>
                                     <View className="collection" onClick={(event) => {
                                         event.stopPropagation()
                                         handleCollection(index)
                                 }}> 
                                     <AtIcon  value='heart' size='20' ></AtIcon>
-                                        <Text className="number">{row.collectionNum }</Text>
+                                    <Text className="number">{row.collectionNum }</Text>
                                 </View>
                             </View>
                             
@@ -84,7 +84,7 @@ export default function ArticleItem (props: PropsData) {
 
                             <View className="type">
                                 <AtIcon  value='image' size='20'></AtIcon>
-                                    <Text className="title1">{ row.subTitle }</Text>
+                                <Text className="title1">{ row.subTitle }</Text>
                             </View>
 
                         </View>
