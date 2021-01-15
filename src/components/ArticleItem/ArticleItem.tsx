@@ -13,21 +13,26 @@ export interface ArticleItemParams {
     img: string;
     isSelect:boolean
 }
-
 interface PropsData {
     articleList: Array<ArticleItemParams>;
 }
 
+type ListParams = Array<ArticleItemParams>
 
 export default function ArticleItem (props: PropsData) {
     const { articleList } = props
-    const [list, setList] = useState<Array<ArticleItemParams>>([])
+    const [list, setList] = useState<ListParams>([])
     useEffect(() => {
         setList([...list,...articleList])
     }, [articleList])
     //详情
-    const toDetail = (item) => {
-        console.log(item,'item')
+    const toDetail = (item, index) => {
+       handlePreview(item,index)
+    }
+    //预览数
+    const handlePreview = (item,index) => {
+        list[index].preViewNum++
+        setList([...list])
     }
     //收藏
     const handleCollection = (index) => {
@@ -52,7 +57,7 @@ export default function ArticleItem (props: PropsData) {
                 list.map((row,index) => {
                     return (
                         <View className="wrap" onClick= { () => {
-                            toDetail(row)
+                            toDetail(row,index)
                     }}>
                             <View className="title">
                                 <Text className="title">{ row.title}</Text>

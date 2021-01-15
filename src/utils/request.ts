@@ -5,7 +5,7 @@
  */
 import Taro from '@tarojs/taro'
 
-const host = 'http://192.168.1.6:3000/taroapi'
+const host = 'http://localhost:3000/taroapi'
 
 /**
  * @Description: 请求参数
