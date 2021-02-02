@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View } from '@tarojs/components'
 import { AtSearchBar } from 'taro-ui'
-import Taro from '@tarojs/taro'
 import articleApi from '../../apis/article'
 import ArticleItem ,{ ArticleItemParams } from '../../components/ArticleItem/ArticleItem'
 
@@ -18,7 +17,7 @@ export default class Home extends Component {
         keyword: '',
         articleList:[]
     }
-    getArticleList = () => {
+    getArticleList = async () => {
         articleApi.getArticleList().then(res => {
             if (res.code == 200) {
                 this.setState({
@@ -27,6 +26,7 @@ export default class Home extends Component {
             }
             console.log(res,'articleList')
         })
+
     }
     onActionClick = () => {
         this.getArticleList()
