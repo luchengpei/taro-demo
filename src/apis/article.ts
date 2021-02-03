@@ -12,5 +12,11 @@ export default {
             url: '/article/list',
             method:'GET'
         })
+    },
+    updatePreView(id):any {
+        return request({
+            url: `/update/preview-num?id=${id}`,
+            method:'GET'
+        })
     }
 }

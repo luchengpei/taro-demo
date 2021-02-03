@@ -1,21 +1,26 @@
 const cloud = require('wx-server-sdk')
-cloud.init()
+cloud.init({
+    env:'lcptest-62cc6c'
+})
 const db = cloud.database()
-const collection = db.collection('article')
-exports.main = async (event,context) => {
+const collection = db.collection('demo')
+exports.main = async (event, context) => {
+    const { OPENID } = cloud.getWXContext()
     const {type,data} = event
     switch (type) {
         case 'add':
+            let params = {
+                normalUser: OPENID,
+                ...data
+            }
             collection.add({
-                data
+                data:params
             }).then(res => {
                 return res
             })
             break;
         case 'get':
-            collection.where({
-                _id:'3b020ca36018bec4021a04df4fca01f0'
-            }).get().then(res => {
+            collection.get().then(res => {
                 return res
             })
             break;

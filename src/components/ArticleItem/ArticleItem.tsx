@@ -2,6 +2,7 @@ import React, { useState ,useEffect } from 'react'
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import { AtIcon } from 'taro-ui'
+import articleApi from '../../apis/article'
 import './index.scss'
 export interface ArticleItemParams {
     id: string | number;
@@ -15,24 +16,28 @@ export interface ArticleItemParams {
 }
 interface PropsData {
     articleList: Array<ArticleItemParams>;
+    getArticleList:Function
 }
 
 type ListParams = Array<ArticleItemParams>
 
 export default function ArticleItem (props: PropsData) {
-    const { articleList } = props
+    const { articleList,getArticleList } = props
     const [list, setList] = useState<ListParams>([])
     useEffect(() => {
-        setList([...list,...articleList])
+        setList([...articleList])
     }, [articleList])
     //详情
     const toDetail = (item, index) => {
-       handlePreview(item,index)
+       handlePreview(item)
     }
     //预览数
-    const handlePreview = (item,index) => {
-        list[index].preViewNum++
-        setList([...list])
+    const handlePreview = ({_id}) => {
+        articleApi.updatePreView(_id).then(res => {
+            if (res.code == 200) {
+                getArticleList()
+            }
+        }) 
     }
     //收藏
     const handleCollection = (index) => {
