@@ -2,7 +2,8 @@ export default {
   pages: [
     'pages/article/article',
     'pages/mine/mine',
-    'pages/login/login'
+    'pages/login/login',
+    'pages/register/register'
   ],
   window: {
     backgroundTextStyle: 'light',

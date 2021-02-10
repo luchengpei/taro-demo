@@ -1,0 +1,32 @@
+.index{
+    background:linear-gradient(45deg,#6174aa,#8aa0bd);
+    height: 100vh;
+    padding: 150rpx 20rpx 0 20rpx;
+    .form{
+        background: white;
+        border-radius: 10rpx;
+        padding: 30rpx 0;
+        box-sizing: border-box;
+        .form-item{
+            display: flex;
+            font-size: 28rpx;
+            align-items: center;
+            padding: 20rpx;
+            padding-left: 30rpx;
+            .text{
+                width: 150rpx;
+                display: block;
+            }
+            border-bottom: 1rpx solid #f1f1f1;
+            .input{
+                flex:1;
+            }
+        }
+        .button{
+            width: 95%;
+            margin-left: 20rpx;
+            margin-top: 20rpx;
+            background: #6174aa;
+        }
+    }
+}
